@@ -16,6 +16,12 @@ variable "instance_type" {
   default     = "t2.medium"
 }
 
+variable "instance_tag" {
+  description = "Subnet to create the resources in."
+  type        = string
+  default     = "terraform_node"
+}
+
 variable "key_name" {
   description = "The key name for the Terraform node"
   type        = string

@@ -8,7 +8,7 @@ resource "aws_instance" "terraform_node" {
   user_data     = file("${path.module}/userdata.sh")
 
   tags = {
-    Name = "terraform_node"
+    Name = var.instance_tag
   }
 }
 
