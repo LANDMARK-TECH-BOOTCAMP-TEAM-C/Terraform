@@ -9,7 +9,7 @@ sudo yum install -y yum-utils shadow-utils
 sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
 
 # Install Terraform
-sudo yum -y install terraform
+sudo yum install terraform -y
 
 # Install git (commonly needed for Terraform modules)
 sudo yum install -y git
