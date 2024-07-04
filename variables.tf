@@ -67,7 +67,7 @@ variable "from_port" {
 variable "from_port2" {
   description = "Security Group from port"
   type        = string
-  default     = "443"
+  default     = "0"
 }
 
 variable "to_port" {
@@ -79,13 +79,19 @@ variable "to_port" {
 variable "to_port2" {
   description = "Security Group to port"
   type        = string
-  default     = "443"
+  default     = "0"
 }
 
 variable "ip_protocol" {
   description = "Security Group to port"
   type        = string
   default     = "tcp"
+}
+
+variable "ip_protocol2" {
+  description = "Security Group to port"
+  type        = string
+  default     = "-1"
 }
 
 variable "subnet_id" {

@@ -30,10 +30,11 @@ resource "aws_vpc_security_group_ingress_rule" "ssh_access" {
   to_port           = var.to_port
 }
 
-resource "aws_vpc_security_group_ingress_rule" "https_access" {
+resource "aws_vpc_security_group_egress_rule" "example" {
   security_group_id = aws_security_group.terraform_node_sg.id
-  cidr_ipv4         = var.cidr_ipv4
-  from_port         = var.from_port2
-  ip_protocol       = var.ip_protocol
-  to_port           = var.to_port2
+
+  cidr_ipv4   = var.cidr_ipv4
+  from_port   = var.from_port2
+  ip_protocol = var.ip_protocol2
+  to_port     = var.to_port2
 }
