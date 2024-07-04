@@ -64,10 +64,22 @@ variable "from_port" {
   default     = "22"
 }
 
+variable "from_port2" {
+  description = "Security Group from port"
+  type        = string
+  default     = "443"
+}
+
 variable "to_port" {
   description = "Security Group to port"
   type        = string
   default     = "22"
+}
+
+variable "to_port2" {
+  description = "Security Group to port"
+  type        = string
+  default     = "443"
 }
 
 variable "ip_protocol" {
