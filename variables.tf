@@ -25,7 +25,7 @@ variable "instance_tag" {
 variable "key_name" {
   description = "The key name for the Terraform node"
   type        = string
-  default     = "Keypair412"
+  default     = "GroupC"
 }
 
 variable "sg_name" {
@@ -43,7 +43,7 @@ variable "sg_description" {
 variable "vpc_id" {
   description = "The VPC ID from our account"
   type        = string
-  default     = "vpc-073d1c2cfa4ffb164"
+  default     = "vpc-04adac51f0f004b2e"
 }
 
 variable "sg_tags" {
@@ -79,5 +79,5 @@ variable "ip_protocol" {
 variable "subnet_id" {
   description = "Subnet to create the resources in."
   type        = string
-  default     = "subnet-018ea103f0699973e"
+  default     = "subnet-0abd24b0928bf965a"
 }
