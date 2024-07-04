@@ -1,32 +1,27 @@
 #!/bin/bash
+# User Data script to install Terraform on an EC2 instance
+
+# Update package index
+sudo yum update -y
+
+# Install necessary dependencies
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+
 # Install Terraform
-echo "Installing java packages........"
-sudo apt-get update -y
-sudo apt-get install openjdk-21-jdk -y
+sudo yum -y install terraform
 
-#Installing aws cli
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install
+# Install git (commonly needed for Terraform modules)
+sudo yum install -y git
 
-#Installing teraform packages
-sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
+# Install unzip (commonly needed for some Terraform operations)
+sudo yum install -y unzip
 
-#Install the HashiCorp GPG key.
-wget -O- https://apt.releases.hashicorp.com/gpg | \
-gpg --dearmor | \
-sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg > /dev/null
+# Install AWS CLI (useful for interacting with AWS services)
+sudo yum install -y aws-cli
 
-#Add the official HashiCorp repository to your system. The lsb_release -cs command finds the distribution release codename for your current system, such as buster, groovy, or sid.
-echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
-https://apt.releases.hashicorp.com $(lsb_release -cs) main" | \
-sudo tee /etc/apt/sources.list.d/hashicorp.list
-
-#Installing terraform binary
-sudo apt update -y
-sudo apt-get install terraform -y
-
-#Installing kubectl client
-curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.27.12/2024-04-19/bin/linux/amd64/kubectl
-chmod +x ./kubectl
-mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$HOME/bin:$PATH
+# Verify installation
+terraform -v
+git --version
+unzip -v
+aws --version
