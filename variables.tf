@@ -7,7 +7,7 @@ variable "main-region" {
 variable "ami_id" {
   description = "The AMI ID for the Terraform node"
   type        = string
-  default     = "ami-03c983f9003cb9cd1"
+  default     = "ami-08be1e3e6c338b037"
 }
 
 variable "instance_type" {
@@ -25,7 +25,7 @@ variable "instance_tag" {
 variable "key_name" {
   description = "The key name for the Terraform node"
   type        = string
-  default     = ""
+  default     = "Keypair412"
 }
 
 variable "sg_name" {
@@ -43,7 +43,7 @@ variable "sg_description" {
 variable "vpc_id" {
   description = "The VPC ID from our account"
   type        = string
-  default     = ""
+  default     = "vpc-073d1c2cfa4ffb164"
 }
 
 variable "sg_tags" {
@@ -79,5 +79,5 @@ variable "ip_protocol" {
 variable "subnet_id" {
   description = "Subnet to create the resources in."
   type        = string
-  default     = ""
+  default     = "subnet-018ea103f0699973e"
 }
