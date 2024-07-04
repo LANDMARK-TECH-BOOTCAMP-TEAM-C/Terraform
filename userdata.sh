@@ -18,3 +18,17 @@ sudo chmod +x /usr/bin/terraform
 
 # Verify installation
 terraform --version
+
+# Download AWS CLI
+
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+
+# Unzip AWS CLI
+unzip awscliv2.zip
+
+# Run AWS CLI Installer
+
+sudo ./aws/install
+
+# Verify AWS CLI installation
+aws --version
