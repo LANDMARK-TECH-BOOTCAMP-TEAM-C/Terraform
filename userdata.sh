@@ -1,4 +1,5 @@
 #!/bin/bash
+exec > >(tee /var/log/userdata.log|logger -t userdata -s 2>/dev/console) 2>&1
 sudo apt update -y
 sudo apt install -y unzip curl
 sudo wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
