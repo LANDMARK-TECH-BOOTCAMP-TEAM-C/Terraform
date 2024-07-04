@@ -7,7 +7,7 @@ variable "main-region" {
 variable "ami_id" {
   description = "The AMI ID for the Terraform node"
   type        = string
-  default     = "ami-08be1e3e6c338b037"
+  default     = "ami-06c68f701d8090592"
 }
 
 variable "instance_type" {
