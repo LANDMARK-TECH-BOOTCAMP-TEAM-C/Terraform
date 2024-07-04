@@ -1,27 +1,20 @@
 #!/bin/bash
-# User Data script to install Terraform on an EC2 instance
 
-# Update package index
-sudo yum update -y
+# Update package lists
+sudo apt update
 
-# Install necessary dependencies
-sudo yum install -y yum-utils shadow-utils
-sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+
+# Install unzip (if not already installed)
+sudo apt install -y unzip
 
 # Install Terraform
-sudo yum install terraform -y
 
-# Install git (commonly needed for Terraform modules)
-sudo yum install -y git
+wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update && sudo apt install terraform
 
-# Install unzip (commonly needed for some Terraform operations)
-sudo yum install -y unzip
-
-# Install AWS CLI (useful for interacting with AWS services)
-sudo yum install -y aws-cli
+# Set executable permissions
+sudo chmod +x /usr/bin/terraform
 
 # Verify installation
-terraform -v
-git --version
-unzip -v
-aws --version
+terraform --version
