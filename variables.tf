@@ -55,7 +55,7 @@ variable "sg_tags" {
 variable "cidr_ipv4" {
   description = "IP address for Security Group"
   type        = string
-  default     = "s"
+  default     = "0.0.0.0/0"
 }
 
 variable "from_port" {
